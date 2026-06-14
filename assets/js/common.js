@@ -39,4 +39,55 @@ $(function () {
     $(".lazy").on("load", function () {
         $grid.masonry('layout');
     });
+
+    function showPublicationCover($trigger) {
+        var imageUrl = $trigger.data('full-image');
+        if (!imageUrl) {
+            return;
+        }
+
+        var title = $trigger.data('title') || '';
+        var $modal = $('#publicationCoverModal');
+        if (!$modal.length) {
+            $('body').append(
+                '<div class="modal fade publication-cover-modal" id="publicationCoverModal" tabindex="-1" role="dialog" aria-hidden="true">' +
+                    '<div class="modal-dialog modal-dialog-centered" role="document">' +
+                        '<div class="modal-content">' +
+                            '<div class="modal-body">' +
+                                '<button type="button" class="close position-absolute text-white pr-2" style="right: 0; top: -2rem;" data-dismiss="modal" aria-label="Close">' +
+                                    '<span aria-hidden="true">&times;</span>' +
+                                '</button>' +
+                                '<img class="w-100 rounded-sm" src="" alt="">' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+            $modal = $('#publicationCoverModal');
+        }
+
+        $modal.find('img').attr({
+            src: imageUrl,
+            alt: title
+        });
+        $modal.modal('show');
+    }
+
+    $(document).on('click', '.publication-cover-button', function () {
+        showPublicationCover($(this));
+    });
+
+    $(document).on('click', '.publication-cover-mobile', function (event) {
+        if ($(event.target).closest('a, button').length) {
+            return;
+        }
+        showPublicationCover($(this));
+    });
+
+    $(document).on('keydown', '.publication-cover-mobile', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            showPublicationCover($(this));
+        }
+    });
 })

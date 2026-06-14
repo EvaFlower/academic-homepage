@@ -12,10 +12,6 @@ navbar_title: Home
 
         {% include widgets/profile_card_bio_only.html %}
 
-        <!-- Debugging widgets -->
-        {% include widgets/debug_repo_name.html %}
-        {% include widgets/debug_url.html %}
-
         {% if site.data.display.homepage.show_experience %}
             {% include widgets/experience_card.html %}
         {% endif %}
@@ -26,6 +22,145 @@ navbar_title: Home
         {% include widgets/news_card.html limit=site.data.display.homepage.num_news %}
         {% endif %}
         {% endif %}
+
+        <div class="row mt-3" id="projects">
+            <div class="col">
+                <div class="card border-0 shadow-sm bg-white">
+                    <div class="card-body p-4">
+                        <h3 class="mb-3">Projects</h3>
+                        <ul class="list-unstyled mb-0">
+                            {% for project in site.data.projects %}
+                            <li class="media mb-3">
+                                <div class="mr-3 text-muted"><i class="fas fa-diagram-project"></i></div>
+                                <div class="media-body">
+                                    <div class="d-flex">
+                                        <div>{{ project.title }}</div>
+                                        <div class="ml-auto no-break"><em>{{ project.period }}</em></div>
+                                    </div>
+                                    <div class="small text-muted">
+                                        {{ project.program }}{% if project.role %}, {{ project.role }}{% endif %}{% if project.funding %}, {{ project.funding }}{% endif %}
+                                    </div>
+                                    {% if project.pi %}
+                                    <div class="small">PI: {{ project.pi }}</div>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3" id="awards">
+            <div class="col">
+                <div class="card border-0 shadow-sm bg-white">
+                    <div class="card-body p-4">
+                        <h3 class="mb-3">Awards</h3>
+                        <ul class="list-unstyled mb-0">
+                            {% for award in site.data.awards %}
+                            <li class="media mb-3">
+                                <div class="mr-3 text-muted"><i class="fas fa-award"></i></div>
+                                <div class="media-body">
+                                    <div class="d-flex">
+                                        <div>{{ award.name }}</div>
+                                        <div class="ml-auto no-break"><em>{{ award.date }}</em></div>
+                                    </div>
+                                    {% if award.note %}
+                                    <div class="small text-muted">{{ award.note }}</div>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3" id="services">
+            <div class="col">
+                <div class="card border-0 shadow-sm bg-white">
+                    <div class="card-body p-4">
+                        <h3 class="mb-3">Services</h3>
+                        <div class="row">
+                            {% for role in site.data.services.roles %}
+                            <div class="col-md-4 mb-3">
+                                <h6>{{ role.name }}</h6>
+                                <ul class="list small pl-3 mb-0">
+                                    {% for item in role.items %}
+                                    <li>
+                                        {{ item.venue }}{% if item.date %}, {{ item.date }}{% endif %}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3" id="invited-talks">
+            <div class="col">
+                <div class="card border-0 shadow-sm bg-white">
+                    <div class="card-body p-4">
+                        <h3 class="mb-3">Invited Talks</h3>
+                        <ul class="list-unstyled mb-0">
+                            {% for talk in site.data.invited_talks %}
+                            <li class="media mb-3">
+                                <div class="mr-3 text-muted"><i class="fas fa-microphone"></i></div>
+                                <div class="media-body">
+                                    <div class="d-flex">
+                                        <div>"{{ talk.title }}"</div>
+                                        <div class="ml-auto no-break"><em>{{ talk.date }}</em></div>
+                                    </div>
+                                    <div class="small text-muted">{{ talk.venue }}{% if talk.location %}, {{ talk.location }}{% endif %}</div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3" id="students">
+            <div class="col">
+                <div class="card border-0 shadow-sm bg-white">
+                    <div class="card-body p-4">
+                        <h3 class="mb-3">Students</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h6>PhD Students</h6>
+                                <ul class="list small pl-3 mb-0">
+                                    {% for student in site.data.people.phd_students %}
+                                    <li>{{ student.name }}{% if student.note %} ({{ student.note }}){% endif %}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h6>Master Students</h6>
+                                <ul class="list small pl-3 mb-0">
+                                    {% for student in site.data.people.master_students %}
+                                    <li>{{ student.name }}{% if student.note %} ({{ student.note }}){% endif %}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-12">
+                                <h6>Alumni</h6>
+                                <ul class="list small pl-3 mb-0">
+                                    {% for student in site.data.people.alumni %}
+                                    <li>{{ student.name }}{% if student.note %} ({{ student.note }}){% endif %}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         {% if site.data.display.homepage.show_selected_publications %}
         {% assign pubs = site.publications | sort: "date" | reverse | where: "selected", true %}

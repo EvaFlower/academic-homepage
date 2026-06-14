@@ -1,0 +1,22 @@
+roles:
+- name: Session Chair
+  items:
+  - venue: IJCAI
+    date: 2025
+- name: Conference Reviewer
+  items:
+  - venue: ICML
+  - venue: NeurIPS
+  - venue: ICLR
+  - venue: AAAI
+  - venue: ACML
+  - venue: ICONIP
+- name: Journal Reviewer
+  items:
+  - venue: IEEE Transactions on Information Theory
+  - venue: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  - venue: IEEE Transactions on Neural Networks and Learning Systems
+  - venue: Machine Learning
+  - venue: IEEE Transactions on Big Data
+  - venue: IEEE Transactions on Emerging Topics in Computational Intelligence
+  - venue: Neurocomputing

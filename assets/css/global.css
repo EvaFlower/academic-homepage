@@ -42,6 +42,34 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 400;
 }
 
+.profile-socials {
+    display: flex;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.profile-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    color: #343a40;
+    font-size: 1rem;
+    line-height: 1;
+    background: #fff;
+}
+
+.profile-social-link:hover,
+.profile-social-link:focus {
+    color: #0056b3;
+    text-decoration: none;
+    border-color: rgba(0, 86, 179, 0.35);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 .navbar {
     background-color: rgba(255, 255, 255, 0.6) !important;
     backdrop-filter: blur(16px);
@@ -62,6 +90,46 @@ h1, h2, h3, h4, h5, h6,
 .cover-image {
     width: 180px;
     max-height: 120px;
+}
+
+.publication-cover {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    min-height: 150px;
+}
+
+.publication-cover-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.publication-cover-button:focus {
+    outline: 2px solid rgba(0, 123, 255, 0.6);
+    outline-offset: 3px;
+}
+
+.publication-cover-modal .modal-dialog {
+    max-width: min(1100px, calc(100vw - 2rem));
+}
+
+.publication-cover-modal .modal-content {
+    border: 0;
+    background: transparent;
+}
+
+.publication-cover-modal .modal-body {
+    padding: 0;
+}
+
+.publication-cover-modal img {
+    display: block;
+    max-height: calc(100vh - 6rem);
+    object-fit: contain;
+    background: #fff;
 }
 
 .abstract-body {

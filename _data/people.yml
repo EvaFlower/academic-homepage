@@ -1,0 +1,27 @@
+phd_students:
+- name: Samal Mukhtar
+  note: PhD candidate at University of Manchester, A*STAR ARAP joint PhD scholarship
+- name: Ziming Wang
+  note: PhD candidate at SUSTech
+- name: Chunyi Li
+  note: PhD candidate at SJTU
+
+master_students:
+- name: Kehan Liu
+  note: NUS
+- name: Nilufer Tamatgar
+  note: NTU
+- name: Lehan Hong
+  note: TUST
+
+alumni:
+- name: Bai Yucheng
+  note: NTU master
+- name: Xu Ziyang
+  note: NUS master
+- name: Ananthu Rajendran Pillai
+  note: NTU master
+- name: Soobin Park
+  note: Yonsei University bachelor
+- name: Guo Huixuan
+  note: NTU bachelor, Singapore; now PhD candidate at MIT
