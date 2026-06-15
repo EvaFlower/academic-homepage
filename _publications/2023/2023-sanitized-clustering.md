@@ -4,7 +4,7 @@ date: 2023-06-01 00:01:00 +0800
 selected: false
 pub: "Machine Learning"
 pub_date: "2023"
-pub_last: ' <span class="badge badge-pill badge-publication badge-info">CCF B</span>'
+pub_last: ' <span class="badge badge-pill badge-publication badge-success">CCF B</span>'
 cover: /assets/images/covers/scab.jpg
 abstract: >-
   Clustering method designed to reduce confounding bias.
