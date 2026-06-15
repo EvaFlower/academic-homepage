@@ -60,6 +60,26 @@ git push origin main
 
 GitHub Actions will build the Jekyll site and publish it to GitHub Pages.
 
+## Country Visit Analytics
+
+The site has optional Google Analytics 4 tracking support. GA4 reports visits by
+country, which can be used to count how many visits come from each country.
+
+To enable it:
+
+1. Create a GA4 web data stream for the homepage URL.
+2. Copy the Measurement ID, which looks like `G-XXXXXXXXXX`.
+3. Add it to `_config.yml`:
+
+```yaml
+analytics:
+  google_analytics_id: "G-XXXXXXXXXX"
+```
+
+After the site is deployed and receives traffic, open Google Analytics and check
+Reports -> User attributes -> Demographic details, then use the `Country`
+dimension to see visits by country.
+
 ## Notes
 
 The site is served from the project path `/yinghua-yao`, so `_config.yml` uses:

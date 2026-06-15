@@ -15,6 +15,12 @@
 # in the templates via {{ site.myvariable }}.
 baseurl: "/yinghua-yao" # the subpath of your site, e.g. /blog
 
+# Analytics
+# Set google_analytics_id to a GA4 Measurement ID, e.g. "G-XXXXXXXXXX".
+# Google Analytics can report visits grouped by country after deployment.
+analytics:
+  google_analytics_id: G-493ZRQBZQ9
+
 # Build settings
 markdown: kramdown
 plugins:
